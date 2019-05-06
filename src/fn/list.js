@@ -7,7 +7,7 @@ export function list(key, params = {}) {
   } = params
 
   function fn(context) {
-    const arr = key ? get(key)(context) : context
+    const arr = get(key)(context)
 
     if (!Array.isArray(arr)) {
       return arr
