@@ -2,7 +2,10 @@
   "name": "fntstring",
   "version": "1.0.0",
   "description": "Utilities for building template strings with complex interpolations",
-  "keywords": ["string", "template"],
+  "keywords": [
+    "string",
+    "template"
+  ],
   "main": "dist/fntstring.js",
   "umd:main": "dist/fntstring.umd.js",
   "module": "dist/fntstring.mjs",
