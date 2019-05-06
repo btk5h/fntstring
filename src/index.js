@@ -1,0 +1,1 @@
+export { fnt as default } from "./fnt"
