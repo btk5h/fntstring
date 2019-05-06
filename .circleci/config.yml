@@ -31,7 +31,13 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      - run: yarn test --coverage
+      - run:
+          command: yarn test --coverage --ci --runInBand --reporters=jest-junit --reporters=default
+          environment:
+            JEST_JUNIT_OUTPUT: "test-results/js-test-results.xml"
+
+      - store_test_results:
+          path: test-results
 
       - codecov/upload:
           file: coverage/coverage-final.json
