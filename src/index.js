@@ -1,1 +1,1 @@
-export { fnt as default } from "./fnt"
+export { fnt } from "./fnt"

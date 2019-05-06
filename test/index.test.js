@@ -1,4 +1,4 @@
-const fnt = require("../dist/fntstring")
+const { fnt } = require("../dist/fntstring")
 
 it("handles normal strings", () => {
   expect(fnt``()).toBe("")
