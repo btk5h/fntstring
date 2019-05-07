@@ -8,6 +8,12 @@ test("firstOf selects the correct expression", () => {
   expect(greet("world")).toBe("Hello, world")
 })
 
+test("firstOf selects non-function expressions", () => {
+  expect(fnt`${firstOf("foo")}`()).toBe("foo")
+  expect(fnt`${firstOf("foo", get())}`("bar")).toBe("foo")
+  expect(fnt`${firstOf(get(), "foo")}`()).toBe("foo")
+})
+
 test("firstOf errors if no expression was resolved", () => {
   expect(() => {
     fnt`${firstOf()}`()
