@@ -6,6 +6,10 @@ export function get(key) {
       throw new TypeError(`${context} has no property '${key}'`)
     }
 
+    if (context === undefined) {
+      throw new TypeError(`Context is undefined`)
+    }
+
     return dotProp.get(context, key)
   }
 
