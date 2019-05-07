@@ -9,6 +9,8 @@ export function firstOf(...expressions) {
         return expression
       } catch (ignored) {}
     }
+
+    throw new TypeError("firstOf did not resolve to any of the given expressions")
   }
 
   return fn

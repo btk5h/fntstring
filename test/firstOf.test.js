@@ -7,3 +7,12 @@ test("firstOf selects the correct expression", () => {
   expect(greet({ firstName: "John", lastName: "Doe" })).toBe("Hello, John Doe")
   expect(greet("world")).toBe("Hello, world")
 })
+
+test("firstOf errors if no expression was resolved", () => {
+  expect(() => {
+    fnt`${firstOf()}`()
+  }).toThrow()
+  expect(() => {
+    fnt`${firstOf(get("test"))}`()
+  }).toThrow()
+})
