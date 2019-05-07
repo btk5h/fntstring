@@ -10,7 +10,7 @@ export function list(key, params = {}) {
     const arr = get(key)(context)
 
     if (!Array.isArray(arr)) {
-      return arr
+      throw new TypeError(`${arr} is not an array`)
     }
 
     const firstElements = arr.slice(0, -1).join(join)

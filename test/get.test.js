@@ -11,8 +11,14 @@ test("get evaluates nested properties", () => {
 
 test("get returns context when no key is passed", () => {
   expect(fnt`${get()}`("test")).toBe("test")
-  expect(fnt`${get(null)}`("test")).toBe("test")
   expect(fnt`${get(undefined)}`("test")).toBe("test")
-  expect(fnt`${get(true)}`("test")).toBe("test")
-  expect(fnt`${get(false)}`("test")).toBe("test")
+})
+
+test("get errors when the key does not exist", () => {
+  expect(() => {
+    fnt`${get(null)}`("test")
+  }).toThrow()
+  expect(() => {
+    fnt`${get("test")}`("test")
+  }).toThrow()
 })

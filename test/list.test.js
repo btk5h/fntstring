@@ -1,11 +1,12 @@
-const { fnt, list, listAnd, listOr } = require("../dist/fntstring")
+const { fnt, list, listAnd, listOr, FntMeta } = require("../dist/fntstring")
 
-test("list handles non-array parameters", () => {
-  expect(fnt`${list()}`("test")).toBe(`${"test"}`)
-  expect(fnt`${list()}`(0)).toBe(`${0}`)
-  expect(fnt`${list()}`(null)).toBe(`${null}`)
-  expect(fnt`${list()}`(undefined)).toBe(`${undefined}`)
-  expect(fnt`${list()}`({})).toBe(`${{}}`)
+test("list errors with non-array parameters", () => {
+  expect(() => {
+    fnt`${list()}`()
+  }).toThrow()
+  expect(() => {
+    fnt`${list("foo")}`({ foo: "test" })
+  }).toThrow()
 })
 
 test("list properly formats arrays", () => {
