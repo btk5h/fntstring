@@ -71,3 +71,7 @@ All of fntstring's APIs are accessible as named exports.
 > `listAnd(key: String) => (context: Object) => String`
 
 > `listOr(key: String) => (context: Object) => String`
+
+### pipe
+
+> `pipe<Output>(...steps: Function) => (context: Object) => Output`
