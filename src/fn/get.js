@@ -10,7 +10,11 @@ export function get(key) {
       throw new TypeError(`Context is undefined`)
     }
 
-    return dotProp.get(context, key)
+    if (key === undefined) {
+      return context
+    }
+
+    return dotProp.get(context, String(key))
   }
 
   return fn
