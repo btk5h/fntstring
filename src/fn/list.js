@@ -6,7 +6,7 @@ export function list(key, params = {}) {
     lastJoin = ", "
   } = params
 
-  function fn(context) {
+  return context => {
     const arr = get(key)(context)
 
     if (!Array.isArray(arr)) {
@@ -18,8 +18,6 @@ export function list(key, params = {}) {
 
     return [firstElements, lastElement].join(arr.length < 2 ? "" : lastJoin)
   }
-
-  return fn
 }
 
 export function listAnd(key) {

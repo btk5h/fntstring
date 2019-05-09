@@ -1,7 +1,5 @@
 export function pipe(...steps) {
-  function fn(context) {
+  return context => {
     return steps.reduce((lastOutput, step) => step(lastOutput), context)
   }
-
-  return fn
 }

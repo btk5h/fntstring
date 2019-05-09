@@ -1,5 +1,5 @@
 export function firstOf(...expressions) {
-  function fn(context) {
+  return context => {
     for (const expression of expressions) {
       try {
         if (typeof expression === "function") {
@@ -12,6 +12,4 @@ export function firstOf(...expressions) {
 
     throw new TypeError("firstOf did not resolve to any of the given expressions")
   }
-
-  return fn
 }

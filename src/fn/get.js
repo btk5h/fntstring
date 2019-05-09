@@ -1,7 +1,7 @@
 import dotProp from "dot-prop"
 
 export function get(key) {
-  function fn(context) {
+  return context => {
     if (key !== undefined && !dotProp.has(context, String(key))) {
       throw new TypeError(`${context} has no property '${key}'`)
     }
@@ -16,6 +16,4 @@ export function get(key) {
 
     return dotProp.get(context, String(key))
   }
-
-  return fn
 }
